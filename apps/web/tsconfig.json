@@ -1,17 +1,23 @@
 {
+  // https://nuxt.com/docs/guide/concepts/typescript
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "moduleResolution": "Node",
-    "esModuleInterop": true,
-    "allowJs": false,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "types": ["vitest/globals"]
+    "exactOptionalPropertyTypes": true
   },
-  "include": ["src", "test", "vitest.config.ts"]
+  "files": [],
+  "references": [
+    {
+      "path": "./.nuxt/tsconfig.app.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.server.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.shared.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.node.json"
+    }
+  ]
 }
