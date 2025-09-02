@@ -1,0 +1,25 @@
+version: "3"
+env: { COMPOSE_DOCKER_CLI_BUILD: "1", DOCKER_BUILDKIT: "1" }
+tasks:
+  bootstrap:
+    desc: 初期セットアップ（依存導入・マイグレ・サンプル投入）
+    cmds:
+      - pnpm -C apps/web install
+      - uv sync -p apps/api
+      - docker compose up -d db
+      - docker compose exec api alembic upgrade head
+      - docker compose run --rm etl python -m apps.etl.cli daily --date {{.DATE | default (env "DATE") | default (shell "date +%F")}}
+  up:
+    desc: web/api/db を起動
+    cmds: [ "docker compose up web api db" ]
+  build:
+    desc: すべてのイメージをビルド
+    cmds: [ "docker compose build --no-cache" ]
+  test:
+    desc: 単体/統合テスト実行
+    cmds:
+      - pnpm -C apps/web test
+      - docker compose exec api pytest -q
+  down:
+    desc: 停止と後片付け
+    cmds: [ "docker compose down -v" ]
