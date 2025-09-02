@@ -1,12 +1,10 @@
-# ML Pipeline Overview
+# ML パイプライン概要
 
-This document outlines the machine learning components for Keirin AI. It covers
-feature engineering, dataset preparation, model training, and evaluation. The
-implementation is in progress and will be expanded as the project evolves.
+このドキュメントは Keirin AI の機械学習コンポーネントを概説します。特徴量エンジニアリング、データセット準備、モデル学習、評価をカバーします。実装は進行中であり、プロジェクトの進展に伴い拡張されます。
 
-## Features
-- Placeholder feature extraction via `build_features`.
-- Dataset splitting utilities via `make_datasets`.
+## 機能
+- `build_features` によるプレースホルダーの特徴量抽出。
+- `make_datasets` によるデータセット分割ユーティリティ。
 
-Further sections will describe model architectures, calibration methods, and
-backtesting results once implemented.
+今後のセクションでは、モデルアーキテクチャ、キャリブレーション手法、バックテスト結果などを実装後に説明する予定です。
+

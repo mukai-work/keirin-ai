@@ -1,33 +1,34 @@
-# Reproducibility
+# 再現性
 
-This document explains how to recreate datasets, features, and model training runs in a reproducible manner.
+このドキュメントはデータセット、特徴量、モデル学習を再現可能に再作成する方法を説明します。
 
-## Feature Snapshots
+## 特徴量スナップショット
 
-Create immutable snapshots of source tables and derived features:
+ソーステーブルと派生特徴量の不変なスナップショットを作成します:
 
 ```bash
 make features.snapshot DATE=YYYY-MM-DD
 ```
 
-The command materializes Parquet files under `data/snapshots/YYYYMMDD/` and updates `features/version.json` and the feature store.
+コマンドは `data/snapshots/YYYYMMDD/` 配下に Parquet ファイルを作成し、`features/version.json` とフィーチャーストアを更新します。
 
-## Verification
+## 検証
 
-Verify that a snapshot matches its recorded manifest:
+スナップショットが記録されたマニフェストと一致するか確認します:
 
 ```bash
 make features.verify VER=vYYYYMMDD-N
 ```
 
-Row counts, column hashes, and null ratios are compared against the manifest so that data drift is detected early.
+行数、カラムハッシュ、Null 割合がマニフェストと比較され、データドリフトを早期に検出します。
 
-## Reproducing Training
+## 学習の再現
 
-Re-run model training for a previously released version with identical dependencies and random seeds:
+公開済みバージョンのモデル学習を同一の依存関係と乱数シードで再実行します:
 
 ```bash
 make reproduce VER=vYYYYMMDD-N
 ```
 
-Metrics should match the original run within ±1%.
+指標は元の実行結果と ±1% の範囲で一致するはずです。
+
