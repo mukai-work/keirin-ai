@@ -1,0 +1,12 @@
+# Node
+node_modules
+.pnpm-store
+
+# Python
+__pycache__
+*.pyc
+.venv
+
+# Misc
+.env
+*.log
