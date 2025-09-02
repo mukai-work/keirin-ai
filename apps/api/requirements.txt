@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pytest
+httpx
+
+# Lint and format
+ruff
+mypy
+black

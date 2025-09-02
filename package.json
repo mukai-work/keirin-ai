@@ -1,0 +1,9 @@
+{
+  "name": "keirin-ai",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test"
+  }
+}
