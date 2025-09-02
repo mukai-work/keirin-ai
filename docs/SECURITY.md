@@ -1,18 +1,19 @@
-# Security
+# セキュリティ
 
-This document outlines security practices for Keirin Prediction AI.
+このドキュメントは Keirin Prediction AI のセキュリティ運用を概説します。
 
-## Supply Chain
+## サプライチェーン
 
-- SBOMs are generated with Syft and scanned by Grype during CI.
-- Container images are signed with cosign and include lightweight SLSA provenance.
+- CI 中に Syft で SBOM を生成し、Grype でスキャンします。
+- コンテナイメージは cosign で署名され、軽量な SLSA 証跡を含みます。
 
-## Application
+## アプリケーション
 
-- Admin routes require JWT authentication with role-based access control.
-- Sensitive tokens, API keys, and email addresses are masked in logs to prevent data leakage.
-- Known vulnerabilities can be temporarily allow-listed with expiry dates.
+- 管理用ルートはロールベースのアクセス制御付き JWT 認証を要求します。
+- 機密トークンや API キー、メールアドレスはログでマスキングされ、データ漏えいを防ぎます。
+- 既知の脆弱性は有効期限付きで一時的に許可リストに登録できます。
 
-## Monitoring
+## 監視
 
-Audit logs are rotated daily and stored for later analysis.
+監査ログは毎日ローテーションされ、後で分析できるよう保存されます。
+

@@ -1,21 +1,22 @@
-# Disaster Recovery Runbook
+# 災害復旧ランブック
 
-This document provides the steps to back up and restore the PostgreSQL database used by Keirin Prediction AI.
+このドキュメントは Keirin Prediction AI で使用する PostgreSQL データベースのバックアップと復元手順を示します。
 
-## Backups
+## バックアップ
 
-Nightly full backups and WAL archives are stored in object storage. A manual backup can be triggered with:
+毎夜のフルバックアップと WAL アーカイブはオブジェクトストレージに保存されます。手動バックアップは次のコマンドでトリガできます:
 
 ```bash
 scripts/backup.sh
 ```
 
-## Point-in-time Recovery
+## ポイントインタイムリカバリ
 
-Restore the database to a specific time, such as the previous day at 23:00:
+前日 23:00 など特定の時刻にデータベースを復元します:
 
 ```bash
 scripts/restore.sh --timestamp "YYYY-MM-DD 23:00:00"
 ```
 
-Stop application services before running the restore and verify the system state once recovery completes.
+復元を実行する前にアプリケーションサービスを停止し、復旧完了後にシステム状態を確認してください。
+

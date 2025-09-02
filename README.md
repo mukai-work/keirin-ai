@@ -1,37 +1,37 @@
 # Keirin Prediction AI
 
-Minimal scaffold for a future Keirin prediction application.
+将来の競輪予測アプリケーションのための最小限の足場となるリポジトリです。
 
-## Prerequisites
-- Node.js 18+ and pnpm
-- Python 3.11+
-- Docker (optional)
+## 前提条件
+- Node.js 18 以上および pnpm
+- Python 3.11 以上
+- Docker（任意）
 
-## Setup
-Install TypeScript dependencies:
+## セットアップ
+TypeScript の依存関係をインストール:
 ```bash
 cd apps/web
 pnpm install
 cd ../..
 ```
 
-Install Python dependencies:
+Python の依存関係をインストール:
 ```bash
 pip install -r apps/api/requirements.txt
 ```
 
-## Development
+## 開発
 ### API
-Run the FastAPI server:
+FastAPI サーバーを起動:
 ```bash
 uvicorn src.main:app --app-dir apps/api --reload
 ```
 
 ### Web
-The web app currently contains sample TypeScript code.
+Web アプリには現在サンプルの TypeScript コードが含まれています。
 
-## Testing
-Run linters and tests:
+## テスト
+リンターとテストを実行:
 ```bash
 pnpm lint
 pnpm test
@@ -63,3 +63,4 @@ task up
 task build
 ```
 作成されたイメージを使用して `docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build` などで起動できます。
+
